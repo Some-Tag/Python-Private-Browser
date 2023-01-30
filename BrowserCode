@@ -1,1 +1,23 @@
+import sys
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtWidgets import QApplication, QMainWindow
 
+class Browser(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.setWindowTitle("Python Browser")
+
+        # Create the QWebEngineView widget
+        self.view = QWebEngineView(self)
+
+        # Load a URL into the QWebEngineView
+        self.view.load(QUrl("https://www.google.com"))
+
+        # Show the widget
+        self.view.show()
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    browser = Browser()
+    browser.show()
+    sys.exit(app.exec_())
